@@ -28,17 +28,16 @@ img#wrapper{
   padding: 0px;
 }
 
-input [type = "text"] {
-  font-family: 'Neucha', cursive;
-  font-size: 24px;
-  color: #123e5b;
-}
-
 .mytext {
   font-family: 'Neucha', cursive;
   font-size: 50px;
   height: 55px;
   width: 150px;
   background-color: #faf2d8;
-  outline-color: #faf2d8
+  outline-color: #123e5b;
+  color: #123e5b;
+}
+#name {
+  text-align: center;
+  margin-top:-42vh;
 }
