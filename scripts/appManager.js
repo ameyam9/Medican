@@ -1,12 +1,77 @@
 
+currentTime = new Date();
+
+/////////////////
+class Stopwatch {
+
+    constructor() {
+        this.running = false;
+    }
+
+    getHoursRunning(currentTime) {
+        let ms = currentTime - startTime
+        let hours = ms/(1000 * 60 * 60);
+        return Math.floor(hours);
+    }
+
+    isRunning() {
+        return running;
+    }
+    start(startTime) {
+        this.startTime = startTime;
+        running = true;
+    }
+    stop() {
+        running = false;
+    }
 
 
-const pillEntry = {
-  name:"", note:"", expirydate:"", time:"",
-
+}
+///////////////
+const PillEntry = {
+  name:"",note:"",expirydate:"", time:"",
+  lastTime: new Date(null,null, (currentTime.getHours() < time ? daysFrom(-1,currentTime) : currentTime.getDate()), time, null, null, null),
+  stopwatch: new Stopwatch(),
 };
 
+//////////////////////////////////
+//Runs ONLY once
+onLogin(); /////////////TEST
 
+
+////////////////////////////////////////
+
+
+//How program displays while running
+
+//////LOOP
+    getHoursRunning()   ////////Test
+
+    ////has pill been taken
+    /////if pill Taken
+    onTakePill(); /////////Test
+
+
+
+
+//////////////////////////////////////////
+
+    function onLogin() {
+        startTime = new Date(null,null, (lastTime.getHours() >= hourToTakePill ? daysFrom(1, lastTime) : currentTime.getDate()), hourToTakePill, null, null, null);
+        stopwatch.start(startDate);
+    }
+
+    function onTakePill(currentTime) {
+        lastTime = currentTime;
+    }
+
+    function daysFrom(d, time) {
+        let result = new Date();
+        result.setTime(time.getTime() - (d*24*60*60*1000));
+        return result;
+    }
+
+//////////////////////////////////////////////////
 
 const inputName = document.querySelector("#name");
   inputName.addEventListener("input", getName);
@@ -39,3 +104,6 @@ pillEntry.note = inputNote.value;
         console.log(pillEntry.expirydate);
 
   }
+
+
+  /////////////////////////////////////////////////
