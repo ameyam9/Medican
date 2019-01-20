@@ -6,50 +6,36 @@ const pillEntry = {
 
 };
 
+
+
 const inputName = document.querySelector("#name");
-
-
-
+  inputName.addEventListener("input", getName);
+  console.log("1" + inputName);
   function getName() {
-    if (inputName) {
-        inputName.addEventListener("input", getName);
-    }
+      pillEntry.name = inputName.value;
+      console.log(pillEntry.name);
 
-  pillEntry.name = inputName;
-    //console.log(pillEntry.name);
   }
 
-  const inputNote = document.querySelector("#notes");
-
-
+const inputNote = document.querySelector("#notes");
+inputNote.addEventListener("input", getNotes);
   function getNotes() {
 
-    if(inputName){
-
-        inputNote.addEventListener("input", getNotes);
-    }
-      pillEntry.note = inputNote;
-
-  }
-  const inputDate = document.querySelector("#date");
-
-
-  function getDate() {
-    if(inputDate) {
-        inputDate.addEventListener("input", getDate);
-    }
-      pillEntry.date = inputDate;
+pillEntry.note = inputNote.value;
+  console.log(pillEntry.note);
 
   }
   const inputTime = document.querySelector("#time");
+    inputTime.addEventListener("input", getTime);
+  function getTime() {
+  pillEntry.time = inputTime.value
+    console.log(pillEntry.time);
+}
 
-
+  const inputDate = document.querySelector("#date");
+  inputDate.addEventListener("input", getexpiryTime);
   function getexpiryTime() {
-    if(inputTime){
-        inputTime.addEventListener("input", getTime);
-    }
-      pillEntry.time = inputTime;
-
+      pillEntry.expirydate = inputDate.value;
+        console.log(pillEntry.expirydate);
 
   }
-console.log();
