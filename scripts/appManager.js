@@ -54,17 +54,7 @@ let pillEntry = {
     /////*DEBUG/////
 
     onLogin();
-    let h = prompt("Last Hour?");
-    let m = prompt("Last Month?");
-    let y = prompt("Last Year?");
-    let d = prompt("Last Day?");
-    pillEntry.lastTime = new Date(y,m,d,h,0,0,0);
-    pillEntry.time = 5;
-    console.log(pillEntry.lastTime.toString());
-    console.log(currentTime.toString());
-    if(pillEntry.stopwatch.isRunning())
-      console.log(pillEntry.stopwatch.getHoursRunning(currentTime));
-    //break;
+  
 
 
 
