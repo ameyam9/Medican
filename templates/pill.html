@@ -7,7 +7,6 @@
     <title>
       Homepage
 </title>
-
   </head>
   <body onload="startTime()">
     <div id="txt"></div>
@@ -40,7 +39,12 @@
     return i;
     }
     </script>
-
+    <script type="text/javascript">
+      function onPillClick() {
+        const pillButton = document.getElementsByClassName('pill-button')[0];
+        pillButton.style.display = 'none';
+      }
+    </script>
     <div class "row">
       <div class="column">
         <h2>Pill Name</h2>
@@ -71,13 +75,5 @@
     <script>
       document.getElementById('expirydate').innerHTML = pillEntry.expirydate;
     </script>
-      <script type="text/javascript">
-        function onPillClick() {
-          const pillButton = document.getElementsByClassName('pill-button')[0];
-          pillButton.style.display = 'none';
-          onTakePill(currentTime);
-
-        }
-      </script>
   </body>
 </html>
