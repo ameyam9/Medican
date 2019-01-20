@@ -1,16 +1,18 @@
 
 
-currentTime = new Date();
+let currentTime = new Date();
 
 /////////////////
 class Stopwatch {
 
-    constructor() {
+    constructor(startTime) {
         this.running = false;
+        this.startTime = startTime;
     }
 
     getHoursRunning(currentTime) {
-        let ms = currentTime - startTime
+        let ms = currentTime - this.startTime
+        console.log(this.startTime.toString())
         let hours = ms/(1000 * 60 * 60);
         return Math.floor(hours);
     }
@@ -18,27 +20,54 @@ class Stopwatch {
     isRunning() {
         return this.running;
     }
-    start(startTime) {
-        this.startTime = startTime;
-        running = true;
+    start() {
+        this.running = true;
     }
     stop() {
         running = false;
+    }
+    printTest() {
+      return "I am a stopwatch";
     }
 
 
 }
 ///////////////Run at Program Start only
-const pillEntry = {
-  name:"",note:"",expirydate:"", time:"",
-  lastTime: new Date(null,null, (currentTime.getHours() < time ? daysFrom(-1,currentTime) : currentTime.getDate()), time, null, null, null),
+let pillEntry = {
+  name:"",note:"",expirydate:"", time:"5",
+  lastTime: new Date(currentTime.getFullYear(),currentTime.getMonth(), (currentTime.getHours() < parseInt(this.time) ? daysFrom(-1,currentTime) : currentTime.getDate()), parseInt(this.time), 0, 0, 0),
+  //lastTime: new Date(),
   stopwatch: new Stopwatch(),
 };
-  if(localStorage.lastTime !== undefined && pillEntry.time.parseInt() < 24 && pillEntry.time.parseInt() >= 0) {
+  //// DEBUG:
+
+  ////DEBUG:
+
+
+  if(localStorage.lastTime !== undefined && parseInt(pillEntry.time) < 24 && parseInt(pillEntry.time) >= 0) {
     restorePillEntity();
-    onLogin();
-    //break;
+    /////*DEBUG/////
   }
+  else {
+    storePillEntity();
+  }
+    /////*DEBUG/////
+
+    onLogin();
+    let h = prompt("Last Hour?");
+    let m = prompt("Last Month?");
+    let y = prompt("Last Year?");
+    let d = prompt("Last Day?");
+    pillEntry.lastTime = new Date(y,m,d,h,0,0,0);
+    pillEntry.time = 5;
+    console.log(pillEntry.lastTime.toString());
+    console.log(currentTime.toString());
+    if(pillEntry.stopwatch.isRunning())
+      console.log(pillEntry.stopwatch.getHoursRunning(currentTime));
+    //break;
+
+
+
 //}
 
 //////////////////////////////////
@@ -63,7 +92,7 @@ const pillEntry = {
     if(!pillEntry.stopwatch.isRunning()) {
       //No Pill display
     }
-    else if(getHoursRunning() <= 0) { ///Test
+    else if(pillEntry.stopwatch.getHoursRunning() <= 0) { ///Test
       //Normal Display
     }
     else {
@@ -72,9 +101,10 @@ const pillEntry = {
 
     ////has pill been taken
     /////if(pill Taken)
-    onTakePill(); /////////Test
+    onTakePill(currentTime); /////////Test
 
      storePillEntity();
+     console.log("Called Store");
 /////////////////////////////////////////////////
 
 function storePillEntity() {
@@ -97,9 +127,20 @@ function restorePillEntity() {
 //////////////////////////////////////////
 
     function onLogin() {
-        startTime = new Date(null,null, (lastTime.getHours() >= hourToTakePill ? daysFrom(1, lastTime) : currentTime.getDate()), hourToTakePill, null, null, null);
-        if(currentTime - startTime >= 24 * 60 * 60 * 1000)
-          stopwatch.start(startTime);
+        //startTime = new Date(1,1,1,1,1,1,1);
+        console.log("PPPPP" + pillEntry.lastTime.toString());
+
+
+
+
+
+        startTime = new Date(pillEntry.lastTime.getFullYear(),pillEntry.lastTime.getMonth(), (pillEntry.lastTime.getHours() >= parseInt(pillEntry.time) ? daysFrom(1, pillEntry.lastTime) : currentTime.getDate()), 5, 0, 0, 0);
+
+        //if(currentTime - startTime < 24 * 60 * 60 * 1000) {
+            pillEntry.stopwatch = new Stopwatch(startTime);
+            console.log("SSSSSS" + startTime.toString());
+            pillEntry.stopwatch.start();
+        //}
     }
 
     function onTakePill(currentTime) {
@@ -116,10 +157,8 @@ function restorePillEntity() {
 
 const inputName = document.querySelector("#name");
   inputName.addEventListener("input", getName);
-  console.log("1" + inputName);
   function getName() {
       pillEntry.name = inputName.value;
-      console.log(pillEntry.name);
 
   }
 
