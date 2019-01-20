@@ -28,7 +28,7 @@ class Stopwatch {
 
 }
 ///////////////
-const PillEntry = {
+const pillEntry = {
   name:"",note:"",expirydate:"", time:"",
   lastTime: new Date(null,null, (currentTime.getHours() < time ? daysFrom(-1,currentTime) : currentTime.getDate()), time, null, null, null),
   stopwatch: new Stopwatch(),
@@ -36,7 +36,15 @@ const PillEntry = {
 
 //////////////////////////////////
 //Runs ONLY once
-onLogin(); /////////////TEST
+
+console.log();
+
+if(pillEntry.time.parseInt() < 24 && pillEntry.time.parseInt() >= 0) {
+  onLogin();
+}
+/////////////TEST
+console.log();
+
 
 
 ////////////////////////////////////////
@@ -44,8 +52,18 @@ onLogin(); /////////////TEST
 
 //How program displays while running
 
-//////LOOP
-    getHoursRunning()   ////////Test
+//////LOOP, dont run if pill entry hasnt been filled out
+
+
+    if(!pillEntry.stopwatch.isRunning()) {
+      //No Pill display
+    }
+    else if(getHoursRunning() <= 0) { ///Test
+      //Normal Display
+    }
+    else {
+      //Angry Display
+    }
 
     ////has pill been taken
     /////if pill Taken
@@ -58,7 +76,8 @@ onLogin(); /////////////TEST
 
     function onLogin() {
         startTime = new Date(null,null, (lastTime.getHours() >= hourToTakePill ? daysFrom(1, lastTime) : currentTime.getDate()), hourToTakePill, null, null, null);
-        stopwatch.start(startDate);
+        if(currentTime - startTime >= 24 * 60 * 60 * 1000)
+          stopwatch.start(startTime);
     }
 
     function onTakePill(currentTime) {
