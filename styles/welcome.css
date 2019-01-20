@@ -16,3 +16,22 @@ h1 {
   margin-block-start: 0;
   color: #faf2d8;
 }
+
+div#wrapper {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+img {
+  position: absolute;
+  top: -50px;
+  left: 380px;
+}
+
+input [type = "text"] {
+  font-family: 'Neucha', cursive;
+  font-size: 24px;
+  color: #123e5b;
+
+}
