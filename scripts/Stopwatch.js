@@ -1,17 +1,17 @@
 
 
 class Stopwatch {
-    
+
     constructor() {
         this.running = false;
     }
-    
+
     getHoursRunning(currentTime) {
-        let ms = currentTime - startTime 
+        let ms = currentTime - startTime
         let hours = ms/(1000 * 60 * 60);
         return Math.floor(hours);
     }
-    
+
     isRunning() {
         return running;
     }
@@ -22,6 +22,8 @@ class Stopwatch {
     stop() {
         running = false;
     }
-    
-    
+
+
 }
+
+console.log()
