@@ -7,17 +7,7 @@
     <title>
       Homepage
 </title>
-  <style>
-    .pill-button {
-      cursor: pointer;
-    }
-  </style>
-  <script type="text/javascript">
-    function onPillClick() {
-      const pillButton = document.getElementsByClassName('pill-button')[0]
-      pillButton.style.display = 'none'
-    }
-  </script>
+
   </head>
   <body onload="startTime()">
     <div id="txt"></div>
@@ -70,8 +60,6 @@
        <input id="submit_button" style="position:absolute; left:10px; top:10px;" value="Home" type="submit"><span></span>
     </form>
     </div>
-    <script src="..\scripts\test.js">
-    </script>
     <script>
       document.getElementById('pillName').innerHTML = pillEntry.name;
     </script>
@@ -81,5 +69,15 @@
     <script>
       document.getElementById('expirydate').innerHTML = pillEntry.expirydate;
     </script>
+    <script src="..\scripts\appManager.js">
+    </script>
+      <script type="text/javascript">
+        function onPillClick() {
+          const pillButton = document.getElementsByClassName('pill-button')[0];
+          pillButton.style.display = 'none';
+          onTakePill(currentTime);
+
+        }
+      </script>
   </body>
 </html>
