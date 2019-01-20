@@ -1,9 +1,5 @@
 
 
-
-console.log(localStorage.lastTime);
-
-
 currentTime = new Date();
 
 /////////////////
@@ -20,7 +16,7 @@ class Stopwatch {
     }
 
     isRunning() {
-        return running;
+        return this.running;
     }
     start(startTime) {
         this.startTime = startTime;
@@ -32,23 +28,27 @@ class Stopwatch {
 
 
 }
-///////////////
+///////////////Run at Program Start only
 const pillEntry = {
   name:"",note:"",expirydate:"", time:"",
   lastTime: new Date(null,null, (currentTime.getHours() < time ? daysFrom(-1,currentTime) : currentTime.getDate()), time, null, null, null),
   stopwatch: new Stopwatch(),
 };
+  if(localStorage.lastTime !== undefined && pillEntry.time.parseInt() < 24 && pillEntry.time.parseInt() >= 0) {
+    restorePillEntity();
+    onLogin();
+    //break;
+  }
+//}
 
 //////////////////////////////////
 //Runs ONLY once
 
-console.log();
 
-if(pillEntry.time.parseInt() < 24 && pillEntry.time.parseInt() >= 0) {
-  onLogin();
-}
+
+
 /////////////TEST
-console.log();
+
 
 
 
@@ -57,7 +57,7 @@ console.log();
 
 //How program displays while running
 
-//////LOOP, dont run if pill entry hasnt been filled out
+//////Run Continuously AFTER Entry is filled out
 
 
     if(!pillEntry.stopwatch.isRunning()) {
@@ -71,12 +71,27 @@ console.log();
     }
 
     ////has pill been taken
-    /////if pill Taken
+    /////if(pill Taken)
     onTakePill(); /////////Test
 
-     localStorage.lastTime =
+     storePillEntity();
+/////////////////////////////////////////////////
 
+function storePillEntity() {
+  localStorage.lastTime = pillEntry.lastTime.toString();
+  localStorage.name = pillEntry.name;
+  localStorage.note = pillEntry.note;
+  localStorage.expirydate = pillEntry.expirydate;
+  localStorage.time = pillEntry.time;
 
+}
+function restorePillEntity() {
+  pillEntry.lastTime = new Date(localStorage.lastTime.toString());
+  pillEntry.name = localStorage.name;
+  pillEntry.note = localStorage.note;
+  pillEntry.expirydate = localStorage.expirydate;
+  pillEntry.time = localStorage.time;
+}
 
 
 //////////////////////////////////////////
