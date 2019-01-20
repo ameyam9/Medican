@@ -22,7 +22,7 @@ h1 {
 img#wrapper{
   margin-block-end: 0;
   margin-block-start: 0;
-  position: relaitve;
+  position: relative;
   margin-top: -10vh;
   width: 500px;
   padding: 0px;
@@ -39,5 +39,5 @@ img#wrapper{
 }
 #name {
   text-align: center;
-  margin-top:-42vh;
+  margin-top:-40vh;
 }
