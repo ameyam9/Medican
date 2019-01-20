@@ -2,9 +2,8 @@
 
 class Stopwatch {
     
-    constructor(startTime) {
+    constructor() {
         this.running = false;
-        this.startTime = startTime;
     }
     
     getHoursRunning(currentTime) {
@@ -16,7 +15,8 @@ class Stopwatch {
     isRunning() {
         return running;
     }
-    start() {
+    start(startTime) {
+        this.startTime = startTime;
         running = true;
     }
     stop() {
