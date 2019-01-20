@@ -4,17 +4,36 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href= "/styles/data.css">
     <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
-    <title></title>
+    <title>Prescription Entry</title>
   </head>
   <body>
+    <h1>Hello!</h1>
 
-<p>Enter Your Name<input type="text" id="name"></p>
-<p>Enter Any Notes<input type="text" id="notes"></p>
-<p>Enter Your Expiry Date<input type="text" id="date"></p>
-<p>Enter Your Date Taken<input type="text" id="time"></p>
+    <h2>Please enter your info</h2>
 
+    <!-- <img id = "wrapper" src="/media/SidewaysPill2.png" alt="pill">
+    <img id = "wrapper" src="/media/SidewaysPill1.png" alt="pill">
+    <img id = "wrapper" src="/media/SidewaysPill2.png" alt="pill"> -->
+<div class ="pillName">
+  <img id = "wrapper" src="/media/SidewaysPill1.png" alt="pill">
+  <div class="centered"><p>Pill Name&nbsp <input type="text" id="name" name ="text_name" class="mytext"></p>
+</div>
+</div>
+<div class = "notes" >
+  <img id = "wrapper" src="/media/SidewaysPill2.png" alt="pill">
+  <div class = "centered1"><p>Any Notes&nbsp <input type="text" id="notes" name ="text_name" class="mytext"></p>
+</div></div>
+<div class = "expiry">
+  <img id = "wrapper" src="/media/SidewaysPill1.png" alt="pill">
+  <div class = "centered2"><p>Expiry Date&nbsp <input type="text" id="date" name ="text_name" class="mytext"></p>
+</div></div>
+<div class = "dateTaken">
+  <img id = "wrapper" src="/media/SidewaysPill2.png" alt="pill">
+  <div class = "centered3"><p>Date Taken&nbsp <input type="text" id="time" name ="text_name" class="mytext"></p>
+</div></div>
   <script src="../scripts/appManager.js"></script>
   </body>
+
   <div id="button">
     <form method="get" action = "/">
       <input id="submit_button" value = "Home" type="submit"><span></span>
