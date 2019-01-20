@@ -7,12 +7,23 @@
     <title>
       Homepage
 </title>
+  <style>
+    .pill-button {
+      cursor: pointer;
+    }
+  </style>
+  <script type="text/javascript">
+    function onPillClick() {
+      const pillButton = document.getElementsByClassName('pill-button')[0]
+      pillButton.style.display = 'none'
+    }
+  </script>
   </head>
   <body onload="startTime()">
     <div id="txt"></div>
     <p> 0 pills missed
     </p>
-        <img id = "wrapper" src="/media/SMALLERBIGPILL.png" alt="pill">
+        <img id = "wrapper" src="/media/SMALLERBIGPILL.png" alt="pill" class="pill-button" onclick="onPillClick()"/>
         <img id = "wrapper" src="/media/logopill.gif" alt="pill">
     <script type="text/javascript">
     function startTime()
