@@ -88,27 +88,19 @@ p {
 }
 
 .centered {
-  position: absolute;
-  top: 24%;
-  left: 38.5%;
-  transform: translate(0%, 0%);
+  position: relative;
+  margin-top: -30vh;
 }
 
 .centered1 {
-  position: absolute;
-  top: 24%;
-  left: 35.5%;
-  transform: translate(0%, 0%);
+  position: relative;
+  margin-top: -30vh;
 }
 .centered2 {
-  position: absolute;
-  top: 24%;
-  left: 36%;
-  transform: translate(0%, 0%);
+  position: relative;
+  margin-top: -30vh;
 }
 .centered3 {
-  position: absolute;
-  top: 24%;
-  left: 35.5%;
-  transform: translate(0%, 0%);
+  position: relative;
+  margin-top: -30vh
 }
