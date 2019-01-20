@@ -23,9 +23,18 @@ img#wrapper{
   margin-block-end: 0;
   margin-block-start: 0;
   position: relative;
-  margin-top: -10vh;
-  width: 500px;
+  margin:auto;
+  width: 350px;
   padding: 0px;
+  text-align: center;
+}
+
+img#wrapper1{
+  position: relative;
+  margin-top: -10vh;
+  width: 100px;
+  padding: 0px;
+  text-align:center;
 }
 
 .mytext {
@@ -37,7 +46,17 @@ img#wrapper{
   outline-color: #123e5b;
   color: #123e5b;
 }
-#name {
+
+.name {
+  position: relative;
   text-align: center;
-  margin-top:-40vh;
+  color:white;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.centered {
+  position: relative;
+  margin-top: -40vh;
+  text-align: center;
 }
