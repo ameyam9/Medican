@@ -1,4 +1,9 @@
 
+
+
+console.log(localStorage.lastTime);
+
+
 currentTime = new Date();
 
 /////////////////
@@ -68,6 +73,8 @@ console.log();
     ////has pill been taken
     /////if pill Taken
     onTakePill(); /////////Test
+
+     localStorage.lastTime =
 
 
 
