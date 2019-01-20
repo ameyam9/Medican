@@ -6,6 +6,8 @@ body {
 }
 
 h1 {
+  margin-block-end: 0;
+  margin-block-start: 0;
   font-size: 50px;
   color: #abcdcc;
 }
@@ -17,19 +19,26 @@ h1 {
   color: #faf2d8;
 }
 
-div#wrapper {
-  position: relative;
+img#wrapper{
+  margin-block-end: 0;
+  margin-block-start: 0;
+  position: relaitve;
+  margin-top: -10vh;
   width: 500px;
-  height: 500px;
-}
-
-img {
-  position: absolute;
-
+  padding: 0px;
 }
 
 input [type = "text"] {
   font-family: 'Neucha', cursive;
   font-size: 24px;
   color: #123e5b;
+}
+
+.mytext {
+  font-family: 'Neucha', cursive;
+  font-size: 50px;
+  height: 55px;
+  width: 150px;
+  background-color: #faf2d8;
+  outline-color: #faf2d8
 }
